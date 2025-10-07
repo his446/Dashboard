@@ -33,7 +33,13 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex`}
+        className={`${geistSans.variable} ${geistMono.variable} an<XAxis
+                  dataKey="month"
+                  tickLine={false}
+                  axisLine={false}
+                  tickMargin={8}
+                  tickFormatter={(value) => value.slice(0, 3)}
+                />tialiased flex`}
       >
         <ThemeProvider
           attribute="class"
@@ -44,7 +50,7 @@ export default async function RootLayout({
           <SidebarProvider defaultOpen={defaultOpen}>
             <AppSidebar />
             <main className="w-full">
-              <Navbar />
+              <Navbar/>
               <div className="px-4 ">{children}</div>
             </main>
           </SidebarProvider>
